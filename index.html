@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abhishek — 3D Portfolio</title>
+  <meta name="description" content="Abhishek — GSoC 2027 aspirant. Low-level programming, AI, full-stack & web3. An immersive 3D portfolio built with Three.js." />
+  <meta name="theme-color" content="#0a0e1a" />
+
+  <!-- Fonts: Inter (body), Space Grotesk (headings), JetBrains Mono (code accents) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Three.js via import map (pinned version) -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+    }
+  }
+  </script>
+  <!-- GSAP for intro animations (classic script so it's ready before the module runs) -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+</head>
+<body>
+
+  <!-- ======================= Loading screen ======================= -->
+  <div id="loader" role="status" aria-label="Loading portfolio">
+    <div class="loader-inner">
+      <div class="loader-logo">abhishek<span>.dev</span></div>
+      <div class="loader-track"><div id="loader-bar"></div></div>
+      <div id="loader-pct">0%</div>
+    </div>
+  </div>
+
+  <!-- ============== Fixed WebGL background (whole page) ============== -->
+  <canvas id="bg3d" aria-hidden="true"></canvas>
+
+  <!-- ============================ Nav ============================ -->
+  <nav class="nav">
+    <a class="nav-logo" href="#hero">abhishek<span>.dev</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- ============================ Hero ============================ -->
+    <header id="hero" class="hero">
+      <div class="hero-inner">
+        <div class="hero-tag">🎯 GSoC 2027 Aspirant</div>
+        <h1>Hi, I'm <span class="grad">Abhishek</span></h1>
+        <p class="hero-role">Low-level programmer · AI enthusiast · Full-stack dev · Web3 explorer</p>
+        <p class="hero-sub">I build close to the metal — and ship for the web.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#projects">View my work</a>
+          <a class="btn btn-ghost" href="https://github.com/abhskyd" target="_blank" rel="noopener" aria-label="Abhishek on GitHub">⭐ GitHub</a>
+          <a class="btn btn-ghost" href="https://x.com/abhshekydv" target="_blank" rel="noopener" aria-label="Abhishek on X">𝕏 @abhshekydv</a>
+        </div>
+      </div>
+      <div class="scroll-hint" aria-hidden="true">scroll ↓</div>
+    </header>
+
+    <!-- ============================ About ============================ -->
+    <section id="about">
+      <div class="sec-label">about</div>
+      <h2>A little about me</h2>
+      <div class="about-grid">
+        <div class="about-card reveal">
+          <p>
+            I'm a developer targeting <strong>Google Summer of Code 2027</strong>, driven by curiosity
+            about how software works at every level — from <strong>bare-metal C</strong> up to
+            full-stack applications and decentralized systems.
+          </p>
+          <p>
+            Right now I'm deepening my systems knowledge, exploring AI engineering, and building
+            projects across the stack. I love open source and the idea that code I write can outlive me.
+          </p>
+        </div>
+        <!-- Small 3D element: pure-CSS rotating cube -->
+        <div class="cube-stage reveal" aria-hidden="true">
+          <div class="cube">
+            <div class="face f1">C</div>
+            <div class="face f2">&lt;/&gt;</div>
+            <div class="face f3">AI</div>
+            <div class="face f4">⛓</div>
+            <div class="face f5">⚛</div>
+            <div class="face f6">λ</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ Skills ============================ -->
+    <section id="skills">
+      <div class="sec-label">skills</div>
+      <h2>What I work with</h2>
+      <p class="sec-desc">Broad interests, deep focus — from systems to the web. Keep an eye on the 3D skill orbit behind this section ✨</p>
+      <div class="skill-groups">
+        <div class="skill-group reveal">
+          <h3>🧠 Low-level</h3>
+          <div class="tags">
+            <span class="tag">C</span><span class="tag">C++</span><span class="tag">Git</span>
+            <span class="tag">Systems internals</span><span class="tag">Memory & pointers</span>
+          </div>
+        </div>
+        <div class="skill-group reveal">
+          <h3>🤖 AI</h3>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">ML fundamentals</span>
+            <span class="tag">AI engineering</span><span class="tag">LLMs</span>
+          </div>
+        </div>
+        <div class="skill-group reveal">
+          <h3>🌐 Full-stack</h3>
+          <div class="tags">
+            <span class="tag">JavaScript</span><span class="tag">TypeScript</span><span class="tag">React</span>
+            <span class="tag">Node.js</span><span class="tag">HTML/CSS</span><span class="tag">REST APIs</span>
+          </div>
+        </div>
+        <div class="skill-group reveal">
+          <h3>⛓️ Web3</h3>
+          <div class="tags">
+            <span class="tag">Solidity</span><span class="tag">Smart contracts</span>
+            <span class="tag">Ethereum</span><span class="tag">dApps</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ Projects ============================ -->
+    <section id="projects">
+      <div class="sec-label">projects</div>
+      <h2>Things I've built</h2>
+      <p class="sec-desc">A snapshot of what I'm working on — more coming soon as I prep for GSoC. Click a card for details.</p>
+      <div class="projects-grid">
+        <!-- TODO: replace these placeholder projects with your real ones -->
+        <article class="project reveal" data-tilt data-project="0">
+          <div class="project-top">
+            <span class="project-icon" aria-hidden="true">🧠</span>
+          </div>
+          <h3>AI from scratch</h3>
+          <p>Building machine learning fundamentals from first principles — no black boxes.</p>
+          <div class="project-foot">
+            <div class="langs"><span>Python</span></div>
+            <button class="details-btn" data-project="0">Details →</button>
+          </div>
+        </article>
+        <article class="project reveal" data-tilt data-project="1">
+          <div class="project-top">
+            <span class="project-icon" aria-hidden="true">🛠️</span>
+          </div>
+          <h3>Systems playground</h3>
+          <p>Low-level experiments in C — memory, processes, and what happens under the hood.</p>
+          <div class="project-foot">
+            <div class="langs"><span>C</span></div>
+            <button class="details-btn" data-project="1">Details →</button>
+          </div>
+        </article>
+        <article class="project reveal" data-tilt data-project="2">
+          <div class="project-top">
+            <span class="project-icon" aria-hidden="true">⛓️</span>
+          </div>
+          <h3>Web3 explorer</h3>
+          <p>Smart contracts and dApp experiments on the path to decentralized systems.</p>
+          <div class="project-foot">
+            <div class="langs"><span>Solidity</span><span>JS</span></div>
+            <button class="details-btn" data-project="2">Details →</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============================ Contact ============================ -->
+    <section id="contact">
+      <div class="sec-label">contact</div>
+      <h2>Let's connect</h2>
+      <div class="contact-box reveal">
+        <h3>Want to talk open source, systems, or GSoC?</h3>
+        <p>My inbox and DMs are open — always happy to chat about low-level programming, AI, or open source.</p>
+        <div class="contact-links">
+          <!-- TODO: optionally add your email as a mailto: button here -->
+          <a class="btn btn-primary" href="https://github.com/abhskyd" target="_blank" rel="noopener">⭐ GitHub — @abhskyd</a>
+          <a class="btn btn-ghost" href="https://x.com/abhshekydv" target="_blank" rel="noopener">𝕏 — @abhshekydv</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    built with <span>&lt;/&gt;</span> by abhishek · © 2026
+  </footer>
+
+  <!-- ======================= Project detail modal ======================= -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-title">
+    <div class="modal-overlay" data-close></div>
+    <div class="modal-card">
+      <button class="modal-close" data-close aria-label="Close project details">×</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
