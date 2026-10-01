@@ -24,7 +24,9 @@ export default function HeroTerminal() {
 
   useEffect(() => {
     if (staticMode) return;
-    const current = SEQUENCE[history.length % SEQUENCE.length];
+    // Sequence runs once, then holds — no looping
+    if (history.length >= SEQUENCE.length) return;
+    const current = SEQUENCE[history.length];
 
     if (!outputShown) {
       // Type the command character by character
