@@ -157,7 +157,8 @@ export default function Home() {
       <section id="terminal">
         <div className="sec-head"><span className="sec-cmd">$ ./interactive.sh</span></div>
         <p className="sec-desc">
-          A tiny shell — type <code>help</code> and press Enter.
+          A tiny shell — type <code>help</code>, use ↑/↓ for history, TAB to autocomplete.{' '}
+          Try <code>theme matrix</code> or <code>cd projects</code>.
         </p>
         <InteractiveTerminal />
       </section>

@@ -3,6 +3,15 @@
 Personal portfolio of [Abhishek](https://abhskyd.github.io) — software developer.
 Terminal-themed single-page site built with Next.js.
 
+## Features
+
+- Typing hero terminal and a visitor-playable shell
+- Command history (↑/↓), TAB autocomplete, `/` to focus, ESC to blur
+- 5 terminal themes (`theme matrix`, `theme dracula`…) persisted in localStorage
+- Section navigation from the shell (`cd projects`, `gui`)
+- ASCII banner, easter eggs, clickable links in output
+- Static export — no server, fast load
+
 ## Stack
 
 - Next.js (App Router, static export)
@@ -34,10 +43,10 @@ deploy.yml                  GitHub Pages workflow (copied to .github/workflows/)
 
 ## Customize
 
-- Colors — `:root` variables in `app/globals.css`
+- Colors and themes — `:root` / `[data-theme=…]` blocks in `app/globals.css`
 - Content — `app/page.js`
 - Hero commands — `SEQUENCE` in `components/HeroTerminal.js`
-- Interactive shell commands — `COMMANDS` in `components/InteractiveTerminal.js`
+- Shell commands — `run()` in `components/InteractiveTerminal.js`
 
 ## Deploy
 

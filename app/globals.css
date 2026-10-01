@@ -10,6 +10,34 @@
   --dim: #8b949e;
   --green: #4ade80;
   --cyan: #22d3ee;
+  --err: #f87171;
+  --shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+}
+
+/* ---- Theme palettes (switch with the `theme <name>` command) ---- */
+[data-theme="matrix"] {
+  --bg: #020604; --bg-soft: #041008; --surface: #051408; --border: #0f2a14;
+  --text: #b8f5c4; --dim: #4e8f5e; --green: #00ff41; --cyan: #00e0b8;
+  --err: #ff5f56;
+  --shadow: 0 16px 48px rgba(0, 255, 65, 0.08);
+}
+[data-theme="amber"] {
+  --bg: #0c0800; --bg-soft: #140f02; --surface: #181203; --border: #3a2c08;
+  --text: #ffd28a; --dim: #a07018; --green: #ffb000; --cyan: #ffcf5c;
+  --err: #ff5f56;
+  --shadow: 0 16px 48px rgba(255, 176, 0, 0.07);
+}
+[data-theme="dracula"] {
+  --bg: #282a36; --bg-soft: #2d2f3d; --surface: #343746; --border: #44475a;
+  --text: #f8f8f2; --dim: #6272a4; --green: #50fa7b; --cyan: #8be9fd;
+  --err: #ff5555;
+  --shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+}
+[data-theme="light"] {
+  --bg: #f4f4ef; --bg-soft: #ecece6; --surface: #ffffff; --border: #d9d9d0;
+  --text: #1c1c1a; --dim: #6b6b64; --green: #15803d; --cyan: #0e7490;
+  --err: #dc2626;
+  --shadow: 0 10px 32px rgba(0, 0, 0, 0.12);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -65,7 +93,7 @@ section { max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem 1rem; }
   border: 1px solid var(--border);
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--shadow);
 }
 .term-bar {
   display: flex; align-items: center;
@@ -81,6 +109,13 @@ section { max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem 1rem; }
 .term-body { padding: 1.2rem 1.3rem; font-size: 0.92rem; }
 .line { white-space: pre-wrap; word-break: break-word; }
 .line-out { color: var(--text); }
+.line-out.dim { color: var(--dim); }
+.line-out.err { color: var(--err); }
+.out-link {
+  color: var(--cyan); text-decoration: none;
+  border-bottom: 1px dashed var(--cyan);
+}
+.out-link:hover { color: var(--green); border-color: var(--green); }
 .p-user { color: var(--green); }
 .p-sep, .p-dollar { color: var(--dim); }
 .p-path { color: var(--cyan); }
