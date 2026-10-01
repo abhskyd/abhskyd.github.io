@@ -46,27 +46,6 @@ h1, h2, h3 { font-family: var(--heading); letter-spacing: -0.02em; }
    gradient backdrop above carries the whole look */
 body.no-webgl #bg3d { display: none; }
 
-/* ============ Loading screen ============ */
-#loader {
-  position: fixed; inset: 0; z-index: 200;
-  display: flex; align-items: center; justify-content: center;
-  background: var(--bg);
-  transition: opacity 0.6s ease, visibility 0.6s ease;
-}
-#loader.done { opacity: 0; visibility: hidden; pointer-events: none; }
-.loader-inner { text-align: center; width: min(320px, 80vw); }
-.loader-logo { font-family: var(--mono); font-weight: 700; font-size: 1.3rem; margin-bottom: 1.4rem; }
-.loader-logo span { color: var(--accent); }
-.loader-track {
-  height: 4px; border-radius: 999px; background: var(--border); overflow: hidden;
-}
-#loader-bar {
-  height: 100%; width: 0%; border-radius: 999px;
-  background: var(--accent);
-  transition: width 0.15s linear;
-}
-#loader-pct { font-family: var(--mono); color: var(--muted); font-size: 0.8rem; margin-top: 0.7rem; }
-
 /* ============ Nav ============ */
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;

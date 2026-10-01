@@ -114,32 +114,9 @@ if (!prefersReducedMotion && !isMobile) {
 }
 
 /* ============================================================
-   2. Loading screen (progress indicator)
+   2. Intro animations (GSAP) + scroll reveals
    ============================================================ */
-const loaderEl = document.getElementById("loader");
-const loaderBar = document.getElementById("loader-bar");
-const loaderPct = document.getElementById("loader-pct");
-let progress = 0;
-let displayed = 0;
-let loaderDone = false;
-
-function setProgress(p) { progress = Math.max(progress, p); }
-
-function tickLoader() {
-  displayed += (progress - displayed) * 0.12;
-  if (progress >= 100 && progress - displayed < 0.5) displayed = 100;
-  loaderBar.style.width = displayed + "%";
-  loaderPct.textContent = Math.round(displayed) + "%";
-  if (displayed >= 100) { finishLoading(); return; }
-  requestAnimationFrame(tickLoader);
-}
-requestAnimationFrame(tickLoader);
-
-function finishLoading() {
-  if (loaderDone) return;
-  loaderDone = true;
-  loaderEl.classList.add("done");
-
+function runIntro() {
   // Intro animation (GSAP) — skipped for reduced motion or if GSAP failed to load
   if (!prefersReducedMotion && window.gsap) {
     gsap.timeline({ defaults: { ease: "power3.out" } })
@@ -164,8 +141,8 @@ function finishLoading() {
   document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
 }
 
-// Hard cap so the loader never sticks (e.g. offline fonts)
-setTimeout(() => setProgress(100), 4000);
+// Intro + scroll reveals run immediately; Three.js loads in parallel below
+runIntro();
 
 /* ============================================================
    3. Shared 3D state + helpers (declared before the loop uses them)
@@ -551,6 +528,3 @@ if (THREE) {
     document.body.classList.add("no-webgl");
   }
 }
-
-setProgress(threeRefs ? 75 : 100);
-document.fonts.ready.then(() => setProgress(100)).catch(() => setProgress(100));
