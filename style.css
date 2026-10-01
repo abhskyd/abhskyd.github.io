@@ -13,7 +13,6 @@
   --accent: #22d3ee;
   --accent-2: #a78bfa;
   --accent-3: #34d399;
-  --gradient: linear-gradient(135deg, #22d3ee, #a78bfa, #f472b6);
   --mono: "JetBrains Mono", ui-monospace, monospace;
   --sans: "Inter", system-ui, sans-serif;
   --heading: "Space Grotesk", var(--sans);
@@ -63,7 +62,7 @@ body.no-webgl #bg3d { display: none; }
 }
 #loader-bar {
   height: 100%; width: 0%; border-radius: 999px;
-  background: var(--gradient);
+  background: var(--accent);
   transition: width 0.15s linear;
 }
 #loader-pct { font-family: var(--mono); color: var(--muted); font-size: 0.8rem; margin-top: 0.7rem; }
@@ -99,10 +98,7 @@ body.no-webgl #bg3d { display: none; }
   display: inline-block;
 }
 .hero h1 { font-size: clamp(2.6rem, 7vw, 4.6rem); font-weight: 700; line-height: 1.1; }
-.hero h1 .grad {
-  background: var(--gradient);
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-}
+.hero h1 .grad { color: var(--accent); }
 .hero-role { margin-top: 1.1rem; font-size: 1.05rem; color: var(--text); font-weight: 500; }
 .hero-sub { margin-top: 0.5rem; max-width: 640px; color: var(--muted); font-size: 1.02rem; }
 .hero-cta { margin-top: 2.2rem; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
@@ -113,8 +109,8 @@ body.no-webgl #bg3d { display: none; }
   transition: transform 0.15s, box-shadow 0.2s, background 0.2s, border-color 0.2s, color 0.2s;
 }
 .btn:hover { transform: translateY(-2px); }
-.btn-primary { background: var(--gradient); color: #0a0e14; border: none; }
-.btn-primary:hover { box-shadow: 0 8px 30px rgba(167, 139, 250, 0.35); }
+.btn-primary { background: var(--accent); color: #06121a; border: none; }
+.btn-primary:hover { box-shadow: 0 8px 24px rgba(34, 211, 238, 0.25); }
 .btn-ghost { border: 1px solid var(--border); color: var(--text); background: rgba(15, 21, 38, 0.7); }
 .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
 .scroll-hint {
@@ -195,7 +191,7 @@ h2 { font-size: clamp(1.7rem, 4vw, 2.3rem); font-weight: 700; }
 }
 .project:hover { border-color: var(--accent-2); box-shadow: 0 14px 40px rgba(0, 0, 0, 0.4); }
 .project-top { display: flex; justify-content: space-between; align-items: center; transform: translateZ(30px); }
-.project-icon { font-size: 1.6rem; }
+.project-icon { font-family: var(--mono); font-size: 0.9rem; color: var(--accent); letter-spacing: 0.1em; }
 .project h3 { font-size: 1.05rem; font-weight: 700; transform: translateZ(24px); }
 .project p { color: var(--muted); font-size: 0.9rem; flex: 1; transform: translateZ(18px); }
 .project-foot { display: flex; justify-content: space-between; align-items: center; transform: translateZ(20px); }
@@ -235,7 +231,7 @@ h2 { font-size: clamp(1.7rem, 4vw, 2.3rem); font-weight: 700; }
   transition: color 0.2s;
 }
 .modal-close:hover { color: var(--text); }
-.modal-icon { font-size: 2rem; margin-bottom: 0.7rem; }
+.modal-icon { font-family: var(--mono); font-size: 0.9rem; color: var(--accent); letter-spacing: 0.1em; margin-bottom: 0.8rem; }
 #modal-body h3 { font-size: 1.4rem; margin-bottom: 0.4rem; }
 .modal-tagline { color: var(--accent); font-size: 0.95rem; margin-bottom: 1rem; }
 #modal-body p { color: var(--muted); font-size: 0.95rem; margin-bottom: 1.1rem; }

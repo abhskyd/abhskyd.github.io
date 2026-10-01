@@ -34,7 +34,7 @@ const SECTION_IDS = ["hero", "about", "skills", "projects", "contact"];
 // TODO: replace these placeholder projects with your real ones
 const PROJECTS = [
   {
-    icon: "🧠",
+    icon: "01",
     name: "AI from scratch",
     tagline: "Machine learning fundamentals from first principles — no black boxes.",
     desc: "A hands-on project where I implement core ML algorithms from scratch — gradients, optimizers, attention — to understand what happens beneath the abstractions before shipping real AI features on top of them.",
@@ -42,7 +42,7 @@ const PROJECTS = [
     link: "https://github.com/abhskyd",
   },
   {
-    icon: "🛠️",
+    icon: "02",
     name: "Systems playground",
     tagline: "Low-level experiments in C — what actually happens under the hood.",
     desc: "A growing collection of C experiments exploring memory layout, pointers, processes, and system calls — building deep systems intuition one experiment at a time.",
@@ -50,7 +50,7 @@ const PROJECTS = [
     link: "https://github.com/abhskyd",
   },
   {
-    icon: "⛓️",
+    icon: "03",
     name: "Web3 explorer",
     tagline: "Smart contracts and dApp experiments on the decentralized path.",
     desc: "Learning web3 by building: writing and testing Solidity smart contracts, wiring them to a front end, and understanding how decentralized systems differ from traditional full-stack apps.",
