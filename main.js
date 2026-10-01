@@ -45,7 +45,7 @@ const PROJECTS = [
     icon: "🛠️",
     name: "Systems playground",
     tagline: "Low-level experiments in C — what actually happens under the hood.",
-    desc: "A growing collection of C experiments exploring memory layout, pointers, processes, and system calls. Built to build the deep systems intuition I want for GSoC-level contributions.",
+    desc: "A growing collection of C experiments exploring memory layout, pointers, processes, and system calls — building deep systems intuition one experiment at a time.",
     tech: ["C", "Make", "gdb", "Linux"],
     link: "https://github.com/abhskyd",
   },
